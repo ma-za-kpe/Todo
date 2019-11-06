@@ -22,10 +22,7 @@ class TodoFragment : Fragment() {
         homeViewModel =
             ViewModelProviders.of(this).get(TodoViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_todo, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+
         return root
     }
 }
