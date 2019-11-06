@@ -1,4 +1,4 @@
-package com.maku.todo.ui.share
+package com.maku.todo.ui.todo
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.maku.todo.R
 
-class ShareFragment : Fragment() {
+class TodoFragment : Fragment() {
 
-    private lateinit var shareViewModel: ShareViewModel
+    private lateinit var homeViewModel: TodoViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        shareViewModel =
-            ViewModelProviders.of(this).get(ShareViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_share, container, false)
-        val textView: TextView = root.findViewById(R.id.text_share)
-        shareViewModel.text.observe(this, Observer {
+        homeViewModel =
+            ViewModelProviders.of(this).get(TodoViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_todo, container, false)
+        val textView: TextView = root.findViewById(R.id.text_home)
+        homeViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
